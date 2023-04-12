@@ -2,4 +2,4 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def MainView(request):
-    return HttpResponse("Congratulations!")
+    return HttpResponse("Congratulations! You did it!")

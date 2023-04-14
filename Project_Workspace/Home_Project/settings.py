@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Home_Project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['Pantry/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

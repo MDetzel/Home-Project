@@ -1,6 +1,10 @@
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <section>
     <h1>Welcome to the Home Page!</h1>
+    
+    <a href="{% url 'pantry' %}">Pantry</a>
+    
 </section>
 {% endblock %}

@@ -12,6 +12,9 @@ class Item(models.Model):
     Inventory = models.IntegerField()
     Category = models.ForeignKey(Category, on_delete=models.PROTECT)
     
+    class Meta:
+        ordering = ['Category', 'Title']
+    
     def __str__(self):
         return str(self.Title)
     

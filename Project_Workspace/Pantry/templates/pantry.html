@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h4>Pantry Items</h4>
+<table>
+    <tr>
+        <th>Item</th>
+        <th>Inventory</th>
+        <th>Category</th>
+    </tr>
+    {% for item in pantry.pantry %}
+    <tr>
+        <td>
+            {{item.Title}}
+        </td>
+        <td>
+            {{item.Inventory}}
+        </td>
+        <td>
+            {{item.Category}}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<!-- <form>
+    <div>Add Items</div>
+    <input>
+    <button type="submit">Submit</button>
+</form> -->
+
+{% endblock %}

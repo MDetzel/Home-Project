@@ -8,6 +8,11 @@ from rest_framework.response import Response
 def MainView(request):
     return render(request, 'index.html')
 
+def PantryView(request):
+    pantry_data = Item.objects.all()
+    main_data = {"pantry": pantry_data}
+    return render(request, 'pantry.html', {"pantry": main_data})
+
 class ItemView(generics.ListCreateAPIView):
     queryset = Item.objects.all().select_related('Category')
     serializer_class = ItemSerializer

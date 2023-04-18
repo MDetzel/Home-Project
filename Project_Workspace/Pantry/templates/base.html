@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <title>My Stockpile</title>
+        <meta name="description" content="A brief description"/>
+    </head>
+    <body>
+        {% include 'partials/_header.html' %}
+
+        <main> {% block content %} {% endblock %}</main>
+
+       {% include 'partials/_footer.html' %}
+    </body>
+</html>

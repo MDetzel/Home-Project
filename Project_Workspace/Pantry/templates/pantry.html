@@ -1,33 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h4>Pantry Items</h4>
+<h2>Pantry Items</h2>
+<h4>Refrigerated Goods</h4>
+<table>
+    <tr>
+        <th>Item:</th>
+        <th>Inventory:</th>
+    </tr>
+    {% for item in pantry %}
+        {% if item.Category.Title == 'Refrigerated goods' %}
+        <tr>
+            <td>
+                {{item.Title}}
+            </td>
+            <td>
+                {{item.Inventory}}
+            </td>
+        </tr>
+        {% endif %}
+    {%endfor%}
+</table>
+
+<h4> Canned Goods</h4>
 <table>
     <tr>
         <th>Item</th>
         <th>Inventory</th>
-        <th>Category</th>
     </tr>
-    {% for item in pantry.pantry %}
-    <tr>
-        <td>
-            {{item.Title}}
-        </td>
-        <td>
-            {{item.Inventory}}
-        </td>
-        <td>
-            {{item.Category}}
-        </td>
-    </tr>
+    {% for item in pantry %}
+        {% if item.Category.Title == 'Canned Goods'%}
+        <tr>
+            <td>
+                {{item.Title}}
+            </td>
+            <td>
+                {{item.Inventory}}
+            </td>
+        </tr>
+        {% endif %}
     {% endfor %}
 </table>
-
-
-<!-- <form>
-    <div>Add Items</div>
-    <input>
-    <button type="submit">Submit</button>
-</form> -->
-
 {% endblock %}

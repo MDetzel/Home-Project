@@ -4,6 +4,8 @@ from django.db import models
 class Category(models.Model):
     slug = models.SlugField()
     Title = models.CharField(max_length=255, db_index=True)
+    class Meta: 
+        ordering = ['Title']
     def __str__(self):
         return self.Title
     

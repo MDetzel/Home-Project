@@ -3,6 +3,7 @@
 {% block content %}
 <h2>Pantry Items</h2>
 
+
 {% for table in category %}
 <div class="table">
     <h3>{{table.Title}}</h3>
@@ -15,20 +16,11 @@
         <tr>
             <td>{{item.Title}}</td>
             <td>{{item.Inventory}}</td>
-            <td>
-                <form method="POST" id="form">
-                    {% csrf_token %}
-                    <label for="Inventory">Inventory</label>
-                    <input type="number" id="Inventory">
-                    <label for="Category"></label>
-                    <input type="hidden" id="Category">
-                    <button type="submit">Add</button>
-                </form>
-            </td>
+            <td><a href="{% url 'edit_pantry' item.pk %}"> Edit Inventory</a></td>
         </tr>
-       
         {% endfor %}
     </table>
+    
 </div>
 {% endfor %}
 

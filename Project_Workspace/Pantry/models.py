@@ -16,6 +16,10 @@ class Item(models.Model):
     
     class Meta:
         ordering = ['Category', 'Title']
+        
+    def update_inventory(self, new_inventory):
+        self.Inventory = new_inventory
+        self.save()
     
     def __str__(self):
         return str(self.Title)

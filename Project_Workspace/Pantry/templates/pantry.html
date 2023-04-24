@@ -2,43 +2,28 @@
 {% load static %}
 {% block content %}
 <h2>Pantry Items</h2>
-<h4>Refrigerated Goods</h4>
-<table>
-    <tr>
-        <th>Item:</th>
-        <th>Inventory:</th>
-    </tr>
-    {% for item in pantry %}
-        {% if item.Category.Title == 'Refrigerated goods' %}
-        <tr>
-            <td>
-                {{item.Title}}
-            </td>
-            <td>
-                {{item.Inventory}}
-            </td>
-        </tr>
-        {% endif %}
-    {%endfor%}
-</table>
 
-<h4> Canned Goods</h4>
-<table>
-    <tr>
-        <th>Item</th>
-        <th>Inventory</th>
-    </tr>
-    {% for item in pantry %}
-        {% if item.Category.Title == 'Canned Goods'%}
+
+{% for table in category %}
+<div class="table">
+    <h3>{{table.Title}}</h3>
+    <table>
         <tr>
-            <td>
-                {{item.Title}}
-            </td>
-            <td>
-                {{item.Inventory}}
-            </td>
+            <td>Item</td>
+            <td>Inventory</td>
         </tr>
-        {% endif %}
-    {% endfor %}
-</table>
+        {% for item in table.item_set.all %}
+        <tr>
+            <td>{{item.Title}}</td>
+            <td>{{item.Inventory}}</td>
+            <td><a href="{% url 'edit_pantry' item.pk %}"> Edit Inventory</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+</div>
+{% endfor %}
+
+
+
 {% endblock %}

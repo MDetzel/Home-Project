@@ -4,6 +4,8 @@ from django.db import models
 class Category(models.Model):
     slug = models.SlugField()
     Title = models.CharField(max_length=255, db_index=True)
+    class Meta: 
+        ordering = ['Title']
     def __str__(self):
         return self.Title
     
@@ -14,6 +16,10 @@ class Item(models.Model):
     
     class Meta:
         ordering = ['Category', 'Title']
+        
+    def update_inventory(self, new_inventory):
+        self.Inventory = new_inventory
+        self.save()
     
     def __str__(self):
         return str(self.Title)

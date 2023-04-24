@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Pantry Item</h1>
+<h3>Edit Inventory</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.Inventory.label_tag }}
+    {{ form.Inventory }}
+    <input type="submit" value="Save">
+</form>
+
+{% endblock %}
